@@ -1,10 +1,5 @@
 <style>
-  .carousel--loop .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left), .carousel--loop .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left)+.carousel-item:not(.carousel-item--last), .carousel--loop .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left)+.carousel-item:not(.carousel-item--last)+.carousel-item:not(.carousel-item--last), .carousel--loop .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left)+.carousel-item:not(.carousel-item--last)+.carousel-item:not(.carousel-item--last)+.carousel-item:not(.carousel-item--last), .carousel--loop .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left)+.carousel-item:not(.carousel-item--last)+.carousel-item:not(.carousel-item--last)+.carousel-item:not(.carousel-item--last)+.carousel-item:not(.carousel-item--last), .carousel--loop .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left)+.carousel-item:not(.carousel-item--last)+.carousel-item:not(.carousel-item--last)+.carousel-item:not(.carousel-item--last)+.carousel-item:not(.carousel-item--last)+.carousel-item:not(.carousel-item--last), .carousel--loop .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left)+.carousel-item:not(.carousel-item--last)+.carousel-item:not(.carousel-item--last)+.carousel-item:not(.carousel-item--last)+.carousel-item:not(.carousel-item--last)+.carousel-item:not(.carousel-item--last)+.carousel-item:not(.carousel-item--last) {
-    transition: none;
-}
-  .carousel--loop .carousel-item.active, .carousel--loop .carousel-item.active+.carousel-item, .carousel--loop .carousel-item.active+.carousel-item+.carousel-item, .carousel--loop .carousel-item.active+.carousel-item+.carousel-item+.carousel-item, .carousel--loop .carousel-item.active+.carousel-item+.carousel-item+.carousel-item+.carousel-item, .carousel--loop .carousel-item.active+.carousel-item+.carousel-item+.carousel-item+.carousel-item+.carousel-item, .carousel--loop .carousel-item.active+.carousel-item+.carousel-item+.carousel-item+.carousel-item+.carousel-item+.carousel-item {
-    display: block;
-}
+  
 
 
 
@@ -30,7 +25,7 @@
 }
  @media (max-width: 575px) {
     .carousel-item {
-/*        padding: 15px; */
+       padding: 15px;
     }
  }
 @media (min-width: 576px) {
@@ -146,7 +141,7 @@
   }
   .carousel-control-prev{left:0px;}
   
-     .card-body{position:relative;}
+     .card-body{position:relative;padding:0px;}
   .new{
         position: absolute;
     top: 0%;
@@ -235,14 +230,13 @@
     color: #de0d3d;
     font-size: 45px;
 } */
-  
 </style> 
 
 
-<div class="top-content pt-4">
+<div class="top-content">
     <div class="container-fluid">
-        <div id="carousel-product" class="carousel slide " data-ride="carousel" >
-            <div class="carousel-inner row w-100 mx-auto " role="listbox">
+        <div id="carousel-product" class="carousel slide" data-ride="carousel" centerMode="true">
+            <div class="carousel-inner row w-100 mx-auto" role="listbox">
               
                {% for product in collections[section.settings.feature_Collection].products %} 
               
@@ -299,6 +293,7 @@
     Carousel
 */
 $('#carousel-product').on('slide.bs.carousel', function (e) {
+   interval: 2000,
     var $e = $(e.relatedTarget);
     var idx = $e.index();
     var itemsPerSlide = 5;
