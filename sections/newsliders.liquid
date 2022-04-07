@@ -235,7 +235,7 @@
 
 <div class="top-content">
     <div class="container-fluid">
-        <div id="carousel-product" class="carousel slide" data-ride="carousel" centerMode="true">
+        <div id="carousel-product" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner row w-100 mx-auto" role="listbox">
               
                {% for product in collections[section.settings.feature_Collection].products %} 
@@ -293,7 +293,7 @@
     Carousel
 */
 $('#carousel-product').on('slide.bs.carousel', function (e) {
-   interval: 200
+ touch: true
     var $e = $(e.relatedTarget);
     var idx = $e.index();
     var itemsPerSlide = 5;
