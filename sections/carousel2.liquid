@@ -1,5 +1,5 @@
 <div class="dataSlider">
-  <div class="container-fluid">
+  <div class="container">
     <div class="dataslide">
         {% for product in collections[section.settings.feature_Collection].products %} 
          <div class="card">
@@ -215,6 +215,7 @@ content: '\2039';
   infinite: true,
   speed: 300,
   centerMode: true,
+       centerPadding: '60px',
       arrows:true,
   slidesToShow: 3,
   slidesToScroll: 1,
