@@ -1,6 +1,38 @@
 <div class="dataSlider">
   <div class="container">
-    <div class="dataslide">
+    <div class="desktop">
+        {% for product in collections[section.settings.feature_Collection].products %} 
+         <div class="card">
+                      <div class="card-body">
+                        <a href="{{product.url}}" ><img src="{{product.images[0] | img_url:"large"}}" > </a>
+                        <div class="product_contant">
+                          <div class"">
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                          </div>
+                          <h4 class="product-title"><a href="{{product.url}}">{{product.title}}</a></h4>
+                          <h4 class="product_price"><span><del>{{product.compare_at_price| money_without_trailing_zeros}}</del></span>&nbsp;&nbsp; {{product.price | money_without_trailing_zeros }}</h4>
+                          <a href="#" class="add__btn">add to kart</a>
+                        </div>
+
+                        {%for tag in product.tags %}
+                        {% if tag == 'New product' %}
+                                <div class="new">
+                          <div class="data">
+                            <p>new!</p>
+                          </div>
+
+                        </div>
+                        {%endif%}
+                        {% endfor%}
+                      </div> 
+                    </div> 
+    {% endfor %}
+    </div>
+       <div class="mobile">
         {% for product in collections[section.settings.feature_Collection].products %} 
          <div class="card">
                       <div class="card-body">
@@ -145,7 +177,7 @@ content: '\2039';
   
    .card-body{position:relative;padding:0px;}
   .new{
-        position: absolute;
+    position: absolute;
     top: 0%;
     right: 3%;;
   }
@@ -213,7 +245,7 @@ content: '\2039';
   }
 </style>
  <script>
-    $('.dataslide').slick({
+   $('.desktop').slick({
   dots: false,
   infinite: true,
   speed: 300,
@@ -222,36 +254,17 @@ content: '\2039';
       arrows:true,
   slidesToShow: 3,
   slidesToScroll: 1,
-  responsive: [
-    {
-      breakpoint: 1024,
-      settings: {
-        slidesToShow: 3,
-        slidesToScroll: 3,
-        infinite: true,
-        dots: true
-      }
-    },
-    {
-      breakpoint: 600,
-      settings: {
-         centerMode: false,
-         
-        slidesToShow: 3,
-        slidesToScroll: 1
-      }
-    },
-    {
-      breakpoint: 480,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1
-      }
-    }
-    // You can unslick at a given breakpoint now by adding:
-    // settings: "unslick"
-    // instead of a settings object
-  ]
+});
+    
+     $('.one-time').slick({
+  dots: false,
+  infinite: true,
+  speed: 300,
+  centerMode: true,
+       centerPadding: '80px',
+      arrows:true,
+  slidesToShow: 3,
+  slidesToScroll: 1,
 });
   </script>
 {% schema %}
