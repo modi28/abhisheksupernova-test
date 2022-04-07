@@ -292,7 +292,8 @@
   /*
     Carousel
 */
-$('#carousel-product').on('slide.bs.carousel', function (e) {  
+$('#carousel-product').on('slide.bs.carousel', function (e) {
+   interval: 2000,
     var $e = $(e.relatedTarget);
     var idx = $e.index();
     var itemsPerSlide = 5;
