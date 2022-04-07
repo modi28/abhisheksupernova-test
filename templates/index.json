@@ -215,6 +215,7 @@
     },
     "164732254512feeb85": {
       "type": "newsliders",
+      "disabled": true,
       "settings": {
         "heading": "",
         "feature_Collection": "frontpage"
